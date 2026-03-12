@@ -175,3 +175,23 @@
                 };
         };
 };
+
+&i2c0 {
+    status = "okay";
+    clock-frequency = <I2C_BITRATE_STANDARD>;
+    ssd1312: ssd1312@3c {
+        compatible = "solomon,ssd1306fb";
+        reg = <0x3c>;
+        label = "SSD1312";
+        width = <128>;
+        height = <160>; // Adjust based on your screen resolution
+        segment-offset = <0>;
+        page-offset = <0>;
+        display-offset = <0>;
+        multiplex-ratio = <31>;
+        segment-remap;
+        com-invdir;
+        com-sequential;
+        prechargep = <0x22>;
+    };
+};
